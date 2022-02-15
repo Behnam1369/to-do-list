@@ -1,3 +1,52 @@
 body {
-    background-color: bisque;
+  background-color: whitesmoke;
+}
+
+.to-do-list {
+  background-color: #fff;
+  width: 100%;
+  max-width: 480px;
+  margin: auto;
+  max-height: 100%;
+  box-shadow: 2px 2px 5px 5px rgb(216, 216, 216);
+}
+
+.to-do-list > .header,
+.to-do-list > .new,
+.to-do-list > .footer,
+.task {
+  padding: 15px 10px;
+  border-bottom: solid 1px silver;
+  display: flex;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  color: gray;
+}
+
+.to-do-list > .footer {
+  justify-content: center;
+  background-color: whitesmoke;
+}
+
+input[type="text"] {
+  border: none;
+  outline: none;
+  color: silver;
+  font-size: 16px;
+  font-style: italic;
+}
+
+input[type="text"]::placeholder {
+  color: silver;
+}
+
+.add,
+.remove,
+.refresh {
+  cursor: pointer;
+}
+
+.add {
+  transform: rotate(90deg);
+  margin-right: 5px;
 }
