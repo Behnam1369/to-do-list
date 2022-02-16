@@ -18,7 +18,6 @@ const addTask = () => {
     list.addTask(new Task(description));
     txt.value = '';
   }
-  list.save();
 };
 
 document.querySelector('.add').addEventListener('click', () => {
