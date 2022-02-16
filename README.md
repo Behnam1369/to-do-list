@@ -10,9 +10,7 @@ Part 2: [add & remove](https://github.com/microverseinc/curriculum-javascript/bl
 
 
 # screenshot 
-Will be added
-
-Additional description about the project and its features.
+![screenshot](Demo.png)
 
 ## Built using
 
