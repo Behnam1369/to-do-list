@@ -24,7 +24,7 @@ Part 3: [interactions](https://github.com/microverseinc/curriculum-javascript/bl
 After cloning the repository, run `npm install` to get all required node modules. 
 
 ## Live Demo
-Will be added
+[See Live Demo Here](https://behnam1369.github.io/to-do-list/)
 
 ## Authors
 
