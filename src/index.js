@@ -1,6 +1,7 @@
 import TaskList from './taskList.js';
 import './style.css';
 import Task from './task.js';
+import './interaction.js';
 
 const tasks = (localStorage.tasks ? JSON.parse(localStorage.tasks) : []);
 
