@@ -3,13 +3,14 @@
 # To-DO List
 A simple task manager app / Microverse full-stack developer propgram / Week 7
 You can find requirements of the projects in below links: 
+
 Part 1: [list structure](https://github.com/microverseinc/curriculum-javascript/blob/main/todo-list/m1_list_structure.md)
+
+Part 2: [add & remove](https://github.com/microverseinc/curriculum-javascript/blob/main/todo-list/m3_add_remove.md)
 
 
 # screenshot 
-Will be added
-
-Additional description about the project and its features.
+![screenshot](Demo.png)
 
 ## Built using
 

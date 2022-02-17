@@ -1,23 +1,35 @@
+import TaskList from './taskList.js';
 import './style.css';
+import Task from './task.js';
 
-const tasks = [
-  { description: 'set up webpack', completed: true, index: 1 },
-  { description: 'set up linters', completed: true, index: 2 },
-  { description: 'create project', completed: false, index: 3 },
-  { description: 'push changes', completed: false, index: 4 },
-];
+const tasks = (localStorage.tasks ? JSON.parse(localStorage.tasks) : []);
 
-const loadTasks = () => {
-  const toDoList = document.querySelector('.items');
-  tasks.sort((a, b) => a.index - b.index).map((el) => {
-    const task = document.createElement('div');
-    task.classList.add('task');
-    task.innerHTML = `<label> <input type="checkbox"/> ${el.description} </label> <i class="fa fa-ellipsis-v move"></i>`;
-    toDoList.appendChild(task);
-    return null;
-  });
+const list = new TaskList(tasks);
+window.addEventListener('load', () => {
+  list.show();
+});
+
+const addTask = () => {
+  const txt = document.querySelector('.txtNew');
+  const description = txt.value;
+  if (description === '') {
+    alert('Please type your task description');
+  } else {
+    list.addTask(new Task(description));
+    txt.value = '';
+  }
 };
 
-window.addEventListener('load', () => {
-  loadTasks();
+document.querySelector('.add').addEventListener('click', () => {
+  addTask();
+});
+
+document.querySelector('.txtNew').addEventListener('keyup', (e) => {
+  if (e.keyCode === 13) { // Enter key
+    addTask();
+  }
+});
+
+document.querySelector('.remove').addEventListener('click', () => {
+  list.clearCompletedTasks();
 });

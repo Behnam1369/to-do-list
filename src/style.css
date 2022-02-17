@@ -31,13 +31,26 @@ body {
 input[type="text"] {
   border: none;
   outline: none;
-  color: silver;
+  color: gray;
   font-size: 16px;
-  font-style: italic;
 }
 
 input[type="text"]::placeholder {
   color: silver;
+}
+
+input.txtNew {
+  font-style: italic;
+  width: 90%;
+}
+
+.task input[type="text"] {
+  height: 100%;
+  width: 90%;
+}
+
+.task.completed input[type="text"] {
+  text-decoration: line-through;
 }
 
 .add,
