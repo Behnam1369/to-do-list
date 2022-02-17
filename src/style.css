@@ -41,6 +41,7 @@ input[type="text"]::placeholder {
 
 input.txtNew {
   font-style: italic;
+  width: 90%;
 }
 
 .task input[type="text"] {

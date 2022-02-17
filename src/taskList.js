@@ -12,7 +12,7 @@ export default class TaskList {
       const task = document.createElement('div');
       task.classList.add('task');
       if (el.completed) task.classList.add('completed');
-      task.innerHTML = `<input type="checkbox" ${el.completed ? 'checked' : ''} /> <input type='text' value='${el.description}'/>  <i class="fa fa-ellipsis-v move"></i>`;
+      task.innerHTML = `<input type="checkbox" ${el.completed ? 'checked' : ''} /> <input type='text' value='${el.description}'/>  <i class="fa fa-trash remove"></i>`;
       toDoList.appendChild(task);
       task.querySelector('input[type="checkbox"]').addEventListener('change', () => {
         this.toggleTask(el.index);
@@ -21,6 +21,9 @@ export default class TaskList {
         this.tasks[el.index - 1].description = e.target.value;
         this.save();
         this.show();
+      });
+      task.querySelector('.remove').addEventListener('click', () => {
+        this.removeTask(el.index);
       });
       return null;
     });
@@ -39,17 +42,28 @@ export default class TaskList {
     this.save();
   }
 
+  removeTask(index) {
+    this.tasks = this.tasks.filter((el) => el.index !== index);
+    this.reorderTasks();
+    this.show();
+    this.save();
+  }
+
   clearCompletedTasks() {
     this.tasks = this.tasks.filter((el) => el.completed === false);
-    this.tasks.map((el, i) => {
-      el.index = i + 1;
-      return null;
-    });
+    this.reorderTasks();
     this.show();
     this.save();
   }
 
   save() {
     localStorage.tasks = JSON.stringify(this.tasks);
+  }
+
+  reorderTasks() {
+    this.tasks.map((el, i) => {
+      el.index = i + 1;
+      return null;
+    });
   }
 }
