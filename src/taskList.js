@@ -5,7 +5,7 @@ export default class TaskList {
     this.tasks = tasks.map((el) => new Task(el.description, el.completed, el.index));
   }
 
-  show() {
+  show = () => {
     const toDoList = document.querySelector('.items');
     toDoList.innerHTML = '';
     this.tasks.sort((a, b) => a.index - b.index).map((el) => {
@@ -29,38 +29,25 @@ export default class TaskList {
     });
   }
 
-  addTask(task) {
+  addTask = (task) => {
     task.index = this.tasks.length + 1;
     this.tasks.push(task);
     this.show();
     this.save();
   }
 
-  toggleTask(i) {
-    this.tasks[i - 1].completed = !this.tasks[i - 1].completed;
-    this.show();
-    this.save();
-  }
-
-  removeTask(index) {
+  removeTask = (index) => {
     this.tasks = this.tasks.filter((el) => el.index !== index);
     this.reorderTasks();
     this.show();
     this.save();
   }
 
-  clearCompletedTasks() {
-    this.tasks = this.tasks.filter((el) => el.completed === false);
-    this.reorderTasks();
-    this.show();
-    this.save();
-  }
-
-  save() {
+  save = () => {
     localStorage.tasks = JSON.stringify(this.tasks);
   }
 
-  reorderTasks() {
+  reorderTasks = () => {
     this.tasks.map((el, i) => {
       el.index = i + 1;
       return null;
